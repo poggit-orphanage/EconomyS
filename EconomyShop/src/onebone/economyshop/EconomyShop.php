@@ -43,6 +43,8 @@ use onebone\economyshop\item\ItemDisplayer;
 use onebone\economyshop\event\ShopCreationEvent;
 use onebone\economyshop\event\ShopTransactionEvent;
 
+use onebone\economyshop\task\SpawnTask;
+
 class EconomyShop extends PluginBase implements Listener{
 	/**
 	 * @var DataProvider
@@ -54,7 +56,7 @@ class EconomyShop extends PluginBase implements Listener{
 	private $queue = [], $tap = [], $removeQueue = [], $placeQueue = [];
 
 	/** @var ItemDisplayer[][] */
-	private $items = [];
+	public $items = [];
 
 	public function onEnable(){
 		$this->saveDefaultConfig();
@@ -90,6 +92,8 @@ class EconomyShop extends PluginBase implements Listener{
 		}
 
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		
+		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SpawnTask($this), 20 * 60 * 5);
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $params): bool{

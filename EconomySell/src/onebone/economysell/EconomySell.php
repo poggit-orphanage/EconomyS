@@ -43,6 +43,8 @@ use onebone\economysell\item\ItemDisplayer;
 use onebone\economysell\event\SellCreationEvent;
 use onebone\economysell\event\SellTransactionEvent;
 
+use onebone\economysell\task\SpawnTask;
+
 class EconomySell extends PluginBase implements Listener{
 	/**
 	 * @var DataProvider
@@ -54,7 +56,7 @@ class EconomySell extends PluginBase implements Listener{
 	private $queue = [], $tap = [], $removeQueue = [], $placeQueue = [];
 
 	/** @var ItemDisplayer[][] */
-	private $items = [];
+	public $items = [];
 
 	public function onEnable(){
 		$this->saveDefaultConfig();
@@ -90,6 +92,8 @@ class EconomySell extends PluginBase implements Listener{
 		}
 
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+		
+		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SpawnTask($this), 20 * 60 * 5);
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $params): bool{
