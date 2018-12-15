@@ -35,7 +35,7 @@ use pocketmine\Server;
 use pocketmine\level\Position;
 use pocketmine\level\Level;
 use pocketmine\event\EventPriority;
-use pocketmine\plugin\MethodEventExecutor;
+use pocketmine\plugin;
 
 use onebone\economyapi\EconomyAPI;
 use onebone\economyland\database\YamlDatabase;
@@ -106,9 +106,7 @@ class EconomyLand extends PluginBase implements Listener{
 				$this->getLogger()->alert("Specified database type is unavailable. Database type is YAML.");
 		}
 
-		$this->getServer()->getPluginManager()->registerEvent("pocketmine\\event\\block\\BlockPlaceEvent", $this, EventPriority::HIGHEST, new MethodEventExecutor("onPlaceEvent"), $this);
-		$this->getServer()->getPluginManager()->registerEvent("pocketmine\\event\\block\\BlockBreakEvent", $this, EventPriority::HIGHEST, new MethodEventExecutor("onBreakEvent"), $this);
-		$this->getServer()->getPluginManager()->registerEvent("pocketmine\\event\\player\\PlayerInteractEvent", $this, EventPriority::HIGHEST, new MethodEventExecutor("onPlayerInteract"), $this);
+		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 
 	public function expireLand($landId){
