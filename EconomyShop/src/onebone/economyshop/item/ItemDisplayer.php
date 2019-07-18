@@ -25,8 +25,8 @@ use pocketmine\item\Item;
 use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\AddItemActorPacket;
-use pocketmine\network\mcpe\protocol\RemoveActorPacket;
+use pocketmine\network\mcpe\protocol\AddItemActorPacket as AddItemEntityPacket;
+use pocketmine\network\mcpe\protocol\RemoveActorPacket as RemoveEntityPacket;
 use pocketmine\Player;
 use pocketmine\Server;
 
@@ -49,7 +49,7 @@ class ItemDisplayer{
     }
 
     public function spawnTo(Player $player){
-        $pk = new AddItemActorPacket;
+        $pk = new AddItemEntityPacket;
         $pk->entityRuntimeId = $this->eid;
         $pk->item = $this->item;
         $position = new Vector3($this->pos->x + 0.5, $this->pos->y, $this->pos->z + 0.5);
@@ -66,7 +66,7 @@ class ItemDisplayer{
     }
 
     public function despawnFrom(Player $player){
-        $pk = new RemoveActorPacket;
+        $pk = new RemoveEntityPacket;
         $pk->entityUniqueId = $this->eid;
         $player->dataPacket($pk);
     }
