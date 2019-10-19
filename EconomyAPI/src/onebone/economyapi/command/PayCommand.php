@@ -67,7 +67,7 @@ class PayCommand extends Command{
 
 			$sender->sendMessage($this->plugin->getMessage("pay-success", [$amount, $player], $sender->getName()));
 			if($p instanceof Player){
-				$p->sendMessage($this->plugin->getMessage("money-paid", [$sender->getName(), $amount], $sender->getName()));
+				$p->sendMessage($this->plugin->getMessage("mana-paid", [$sender->getName(), $amount], $sender->getName()));
 			}
 		}else{
 			$sender->sendMessage($this->plugin->getMessage("pay-failed", [$player, $amount], $sender->getName()));
