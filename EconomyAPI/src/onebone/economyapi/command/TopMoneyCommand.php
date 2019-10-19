@@ -31,8 +31,8 @@ class TopMoneyCommand extends Command{
 	private $plugin;
 
 	public function __construct(EconomyAPI $plugin){
-		$desc = $plugin->getCommandMessage("topmoney");
-		parent::__construct("topmoney", $desc["description"], $desc["usage"]);
+		$desc = $plugin->getCommandMessage("topmana");
+		parent::__construct("topmana", $desc["description"], $desc["usage"]);
 
 		$this->setPermission("economyapi.command.topmoney");
 
