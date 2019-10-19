@@ -14,28 +14,28 @@ permissions:
     children:
      economyapi.command.setmoney:
       default: op
-      description: Allows to set player's money
+      description: Allows to set player's mana
      economyapi.command.mymoney:
-      description: Allows player to see his/her money
+      description: Allows player to see his/her mana
       default: true
      economyapi.command.givemoney:
-      description: Allows player to give money to others
+      description: Allows player to give mana to others
       default: op
      economyapi.command.pay:
       description: Allows player to pay to someone
       default: true
      economyapi.command.seemoney:
-      description: Allows player to see others' money
+      description: Allows player to see others' mana
       default: true
      economyapi.command.setlang:
       description: Allows player to set his/her language
       default: true
      economyapi.command.topmoney:
-      description: Allows player to see top money list
+      description: Allows player to see top mana list
       default: true
      economyapi.command.mystatus:
       description: Allows player to see his/her financial status
       default: true
      economyapi.command.takemoney:
-      description: Allows player to take money from others
+      description: Allows player to take mana from others
       default: op
