@@ -409,12 +409,12 @@ class EconomyAPI extends PluginBase implements Listener{
 		$map = $this->getServer()->getCommandMap();
 
 		$commands = [
-			"mymoney" => "\\onebone\\economyapi\\command\\MyMoneyCommand",
-			"topmoney" => "\\onebone\\economyapi\\command\\TopMoneyCommand",
-			"setmoney" => "\\onebone\\economyapi\\command\\SetMoneyCommand",
-			"seemoney" => "\\onebone\\economyapi\\command\\SeeMoneyCommand",
-			"givemoney" => "\\onebone\\economyapi\\command\\GiveMoneyCommand",
-			"takemoney" => "\\onebone\\economyapi\\command\\TakeMoneyCommand",
+			"mymana" => "\\onebone\\economyapi\\command\\MyMoneyCommand",
+			"topmana" => "\\onebone\\economyapi\\command\\TopMoneyCommand",
+			"setmana" => "\\onebone\\economyapi\\command\\SetMoneyCommand",
+			"seemana" => "\\onebone\\economyapi\\command\\SeeMoneyCommand",
+			"givemana" => "\\onebone\\economyapi\\command\\GiveMoneyCommand",
+			"takemana" => "\\onebone\\economyapi\\command\\TakeMoneyCommand",
 			"pay" => "\\onebone\\economyapi\\command\\PayCommand",
 			"setlang" => "\\onebone\\economyapi\\command\\SetLangCommand",
 			"mystatus" => "\\onebone\\economyapi\\command\\MyStatusCommand"
