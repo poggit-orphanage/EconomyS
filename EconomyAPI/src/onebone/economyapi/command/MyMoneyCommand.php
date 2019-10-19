@@ -14,8 +14,8 @@ class MyMoneyCommand extends Command{
 	private $plugin;
 
 	public function __construct(EconomyAPI $plugin){
-		$desc = $plugin->getCommandMessage("mymoney");
-		parent::__construct("mymoney", $desc["description"], $desc["usage"]);
+		$desc = $plugin->getCommandMessage("mymana");
+		parent::__construct("mymana", $desc["description"], $desc["usage"]);
 
 		$this->setPermission("economyapi.command.mymoney");
 
@@ -30,7 +30,7 @@ class MyMoneyCommand extends Command{
 
 		if($sender instanceof Player){
 			$money = $this->plugin->myMoney($sender);
-			$sender->sendMessage($this->plugin->getMessage("mymoney-mymoney", [$money]));
+			$sender->sendMessage($this->plugin->getMessage("mymana-mymana", [$money]));
 			return true;
 		}
 		$sender->sendMessage(TextFormat::RED."Please run this command in-game.");
