@@ -4,7 +4,7 @@ api: [3.0.0]
 main: onebone\economyshop\EconomyShop
 author: onebone
 depend: [EconomyAPI]
-mcpe-protocol: 361
+mcpe-protocol: 422
 
 commands:
  shop:
