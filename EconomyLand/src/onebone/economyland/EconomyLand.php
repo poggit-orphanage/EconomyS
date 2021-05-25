@@ -350,9 +350,13 @@ class EconomyLand extends PluginBase implements Listener{
 
 				if($info["owner"] !== $sender->getName()){
 					if(!$sender->hasPermission("economyland.land.move.others")){
-						$sender->sendMessage($this->getMessage("no-permission-move", [$info["ID"], $info["owner"], "%3"]));
+						$sender->sendMessage($this->getMessage("no-permission-move-others", [$info["ID"], $info["owner"], "%3"]));
 						return true;
 					}
+				}
+				if(!$sender->hasPermission("economyland.land.move")){
+					$sender->sendMessage($this->getMessage("no-permission-move"));
+					return true;
 				}
 				$level = $this->getServer()->getLevelByName($info["level"]);
 				if(!$level instanceof Level){
@@ -733,7 +737,8 @@ class EconomyLand extends PluginBase implements Listener{
 			"not-your-land" => "Land number %1 is not your land",
 			"no-land-found" => "There is no land number %1",
 			"land-corrupted" => "[EconomyLand] The World %2 of Land number %1 is corrupted.",
-			"no-permission-move" => "You have no permission to move to land %1. Owner : %2",
+			"no-permission-move" =>"You have no permission to move to land.",
+			"no-permission-move-others" => "You have no permission to move to land %1. Owner : %2",
 			"fail-moving" => "Failed to move to land %1",
 			"success-moving" => "Moved to land %1",
 			"land-list-top" => "Showing land list page %1 of %2\\n",
